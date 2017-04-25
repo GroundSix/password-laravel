@@ -2,6 +2,7 @@
 
 namespace Groundsix\PasswordLaravel;
 
+use Groundsix\Password\PasswordException;
 use Groundsix\Password\PasswordValidator;
 use Groundsix\Password\Validators\PasswordBlacklistValidator;
 use Groundsix\Password\Validators\PasswordLengthValidator;
@@ -19,8 +20,11 @@ class PasswordServiceProvider extends ServiceProvider
 
         Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
             $passwordValidator = new PasswordValidator(config('password-laravel.config'));
-
-            return $passwordValidator->validate($value);
+            try {
+                return $passwordValidator->validate($value);
+            } catch (PasswordException $e) {
+                return false;
+            }
         });
     }
 
