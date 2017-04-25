@@ -1,0 +1,22 @@
+{
+    "name": "groundsix/password-laravel",
+    "description": "Bindings for groundsix/password for laravel",
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {
+        "groundsix/password": "^0.1",
+        "illuminate/support": "^5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Porthouse",
+            "email": "anthony.porthouse@groundsix.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Groundsix\\PasswordLaravel\\": "src"
+        }
+    }
+}
