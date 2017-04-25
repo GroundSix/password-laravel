@@ -16,14 +16,16 @@ class PasswordServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/password-laravel.php' => $this->app->configPath().'/'.'password-laravel.php',
         ], 'config');
+
+        Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
+            $passwordValidator = new PasswordValidator(config('password-laravel.config'));
+
+            return $passwordValidator->validate($value);
+        });
     }
 
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/password-laravel.php', 'password-laravel');
-
-        Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
-            $passwordValidator = new PasswordValidator(config('password-laravel.config'));
-        });
     }
 }
