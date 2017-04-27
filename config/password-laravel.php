@@ -36,7 +36,7 @@ return [
 
     /**
      * Special character rules
-     * Not usually necessary if a decent blacklist is used alongside a minimum length.
+     * Not usually necessary if a decent blacklist is used alongside a reasonable minimum length.
      */
     'special' => [
 
