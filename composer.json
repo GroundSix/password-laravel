@@ -18,5 +18,12 @@
         "psr-4": {
             "Groundsix\\PasswordLaravel\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Groundsix\\PasswordLaravel\\PasswordServiceProvider"
+            ]
+        }
     }
 }
